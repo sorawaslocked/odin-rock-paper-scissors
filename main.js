@@ -20,6 +20,7 @@ function validatePlayerInput(input) {
 }
 
 function playSingleRound() {
+  let computerChoice = getComputerChoice();
   let playerChoice = prompt("What's your choice?");
   let isChoiceValid = validatePlayerInput(playerChoice);
 
@@ -27,4 +28,12 @@ function playSingleRound() {
     playerChoice = prompt("Enter a valid choice");
     isChoiceValid = validatePlayerInput(playerChoice);
   }
+
+  let roundWinner = getRoundWinner(playerChoice, computerChoice);
+  if (roundWinner === "tie") {
+    alert("Tie!");
+    roundWinner = playSingleRound();
+  }
+
+  return roundWinner;
 }
