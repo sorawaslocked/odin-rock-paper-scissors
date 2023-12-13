@@ -1,8 +1,7 @@
-const CHOICES = ["Rock", "Paper", "Scissors"];
+const CHOICES = ["rock", "paper", "scissors"];
 
 
 alert("Submit your choice through a prompt");
-alert("1 is for rock, 2 is for paper, 3 is for scissors");
 
 playSingleRound();
 
@@ -12,18 +11,20 @@ function getComputerChoice() {
   return CHOICES[randIndex];
 }
 
-function validateUserInput(input) {
-  if (input != 1 && input != 2 && input != 3)
-    return false;
+function validatePlayerInput(input) {
+  if (input.toLowerCase() !== CHOICES[0]
+    && input.toLowerCase() !== CHOICES[1]
+    && input.toLowerCase() !== CHOICES[2]
+    ) return false;
   return true;
 }
 
 function playSingleRound() {
-  let userChoice = +prompt("What's your choice?");
-  let isChoiceValid = validateUserInput(userChoice);
+  let playerChoice = prompt("What's your choice?");
+  let isChoiceValid = validatePlayerInput(playerChoice);
 
   while (isChoiceValid === false) {
-    userChoice = +prompt("Enter a valid choice");
-    isChoiceValid = validateUserInput(userChoice);
+    playerChoice = prompt("Enter a valid choice");
+    isChoiceValid = validatePlayerInput(playerChoice);
   }
 }
