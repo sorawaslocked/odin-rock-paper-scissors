@@ -1,9 +1,7 @@
 const CHOICES = ["rock", "paper", "scissors"];
 
 
-alert("Submit your choice through a prompt");
-
-console.log("ROUND WINNER: ".concat(playSingleRound()));
+game();
 
 
 function getComputerChoice() {
@@ -70,8 +68,9 @@ function game() {
   let playerScore = 0;
   let computerScore = 0;
 
-  while (playerScore != 3 && computerScore != 3) {
+  for (let i = 0; i < 5; i++) {
     result = playSingleRound();
+    console.log("ROUND WINNER: ".concat(result));
     if (result === "player")
       playerScore++;
     else if (result === "computer")
@@ -80,6 +79,8 @@ function game() {
 
   if (playerScore > computerScore)
     console.log("GAME WINNER: player");
-  else
+  else if (computerScore > playerScore)
     console.log("GAME WINNER: computer");
+  else
+    console.log("GAME IS TIED");
 }
