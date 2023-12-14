@@ -79,8 +79,6 @@ function game() {
 
   if (playerScore > computerScore)
     console.log("GAME WINNER: player");
-  else if (computerScore > playerScore)
+  else (computerScore > playerScore)
     console.log("GAME WINNER: computer");
-  else
-    console.log("GAME IS TIED");
 }
