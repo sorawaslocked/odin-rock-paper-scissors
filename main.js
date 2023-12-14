@@ -3,7 +3,7 @@ const CHOICES = ["rock", "paper", "scissors"];
 
 alert("Submit your choice through a prompt");
 
-playSingleRound();
+console.log("WINNER: ".concat(playSingleRound()));
 
 
 function getComputerChoice() {
@@ -54,9 +54,12 @@ function playSingleRound() {
     isChoiceValid = validatePlayerInput(playerChoice);
   }
   
+  console.log("PLAYER: ".concat(playerChoice));
+  console.log("COMPUTER: ".concat(computerChoice));
+
   let roundWinner = getRoundWinner(playerChoice, computerChoice);
   if (roundWinner === "tie") {
-    alert("Tie!");
+    console.log("TIE");
     roundWinner = playSingleRound();
   }
 
