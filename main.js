@@ -3,7 +3,7 @@ const CHOICES = ["rock", "paper", "scissors"];
 
 alert("Submit your choice through a prompt");
 
-console.log("WINNER: ".concat(playSingleRound()));
+console.log("ROUND WINNER: ".concat(playSingleRound()));
 
 
 function getComputerChoice() {
@@ -64,4 +64,22 @@ function playSingleRound() {
   }
 
   return roundWinner;
+}
+
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+
+  while (playerScore != 3 && computerScore != 3) {
+    result = playSingleRound();
+    if (result === "player")
+      playerScore++;
+    else if (result === "computer")
+      computerScore++;
+  }
+
+  if (playerScore > computerScore)
+    console.log("GAME WINNER: player");
+  else
+    console.log("GAME WINNER: computer");
 }
