@@ -1,4 +1,4 @@
-const CHOICES = ["rock", "paper", "scissors"];
+const CHOICES = ["Rock", "Paper", "Scissors"];
 
 
 game();
@@ -22,18 +22,11 @@ function isLowerCase(char) {
 }
 
 function formatChoice(choice) {
-  if (isUpperCase(choice[0])) {
-    let firstLetter = choice[0];
-    firstLetter = firstLetter.toUpperCase();
-    choice = choice.slice(1);
-    choice = firstLetter.concat(choice);
-  }
-  else if (isLowerCase(choice[0])) {
-    let firstLetter = choice[0];
-    firstLetter = firstLetter.toLowerCase();
-    choice = choice.slice(1);
-    choice = firstLetter.concat(choice);
-  }
+  choice = choice.trim();
+  choice = choice.toLowerCase();
+  let firstLetter = choice[0].toUpperCase();
+  choice = firstLetter.concat(choice.slice(1));
+
   return choice;
 }
 
@@ -87,6 +80,16 @@ function playSingleRound() {
     console.log("TIE");
     roundWinner = playSingleRound();
   }
+  else {
+    if (roundWinner === "player") {
+      let roundMessage = "You win. " + playerChoice + " beats " + computerChoice + ".";
+      console.log(roundMessage);
+    }
+    else {
+      let roundMessage = "You lose. " + computerChoice + " beats " + playerChoice + ".";
+      console.log(roundMessage);
+    }
+  }
 
   return roundWinner;
 }
@@ -98,20 +101,11 @@ function game() {
   for (let i = 0; i < 5; i++) {
     roundResult = playSingleRound();
 
-    if (roundWinner === "player") {
-      let roundMessage = "You win. " + playerChoice + " beats " + computerChoice + ".";
-      console.log(roundMessage);
-    }
-    else {
-      let roundMessage = "You lose. " + computerChoice + " beats " + playerChoice + ".";
-      console.log(roundMessage);
-    }
-
     console.log("ROUND WINNER: ".concat(roundResult));
 
     if (roundResult === "player")
       playerScore++;
-    else if (roundResult === "computer")
+    else
       computerScore++;
   }
 
