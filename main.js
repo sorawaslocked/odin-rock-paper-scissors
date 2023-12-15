@@ -40,21 +40,21 @@ function validatePlayerInput(input) {
 
 function getRoundWinner(playerChoice, computerChoice) {
   switch (playerChoice) {
-    case "rock":
+    case "Rock":
       if (computerChoice === "rock")
         return "tie";
       else if (computerChoice === "paper")
         return "computer";
       return "player";
 
-    case "paper":
+    case "Paper":
       if (computerChoice === "rock")
         return "player";
       else if (computerChoice === "paper")
         return "tie";
       return "computer";
 
-    case "scissors":
+    case "Scissors":
       if (computerChoice === "rock")
         return "computer";
       else if (computerChoice === "paper")
@@ -90,7 +90,7 @@ function playSingleRound() {
       console.log(roundMessage);
     }
   }
-
+  
   return roundWinner;
 }
 
