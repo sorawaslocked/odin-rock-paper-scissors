@@ -9,6 +9,34 @@ function getComputerChoice() {
   return CHOICES[randIndex];
 }
 
+function isUpperCase(char) {
+  if (char >= 'A' && char <= 'Z')
+    return true;
+  return false;
+}
+
+function isLowerCase(char) {
+  if (char >= 'a' && char <= 'z')
+    return true;
+  return false;
+}
+
+function formatChoice(choice) {
+  if (isUpperCase(choice[0])) {
+    let firstLetter = choice[0];
+    firstLetter = firstLetter.toUpperCase();
+    choice = choice.slice(1);
+    choice = firstLetter.concat(choice);
+  }
+  else if (isLowerCase(choice[0])) {
+    let firstLetter = choice[0];
+    firstLetter = firstLetter.toLowerCase();
+    choice = choice.slice(1);
+    choice = firstLetter.concat(choice);
+  }
+  return choice;
+}
+
 function validatePlayerInput(input) {
   if (input !== CHOICES[0]
     && input !== CHOICES[1]
@@ -44,22 +72,29 @@ function getRoundWinner(playerChoice, computerChoice) {
 
 function playSingleRound() {
   let computerChoice = getComputerChoice();
-  let playerChoice = prompt("What's your choice?").toLowerCase().trim();
+  let playerChoice = prompt("What's your choice?");
+  playerChoice = formatChoice(playerChoice);
   let isChoiceValid = validatePlayerInput(playerChoice);
 
   while (isChoiceValid === false) {
-    playerChoice = prompt("Enter a valid choice!").toLowerCase().trim();
+    playerChoice = prompt("Enter a valid choice!");
+    playerChoice = formatChoice(playerChoice);
     isChoiceValid = validatePlayerInput(playerChoice);
   }
-  
-  console.log("PLAYER: ".concat(playerChoice));
-  console.log("COMPUTER: ".concat(computerChoice));
 
   let roundWinner = getRoundWinner(playerChoice, computerChoice);
   if (roundWinner === "tie") {
     console.log("TIE");
     roundWinner = playSingleRound();
   }
+
+  playerChoice = formatChoice(playerChoice);
+  computerChoice = formatChoice(computerChoice);
+  
+  if (roundWinner === "player")
+    console.log("You win. " + playerChoice + " beats " + computerChoice + ".");
+  else
+    console.log("You lose. " + computerChoice + " beats " + playerChoice + ".");
 
   return roundWinner;
 }
