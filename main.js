@@ -44,11 +44,11 @@ function getRoundWinner(playerChoice, computerChoice) {
 
 function playSingleRound() {
   let computerChoice = getComputerChoice();
-  let playerChoice = prompt("What's your choice?").toLowerCase();
+  let playerChoice = prompt("What's your choice?").toLowerCase().trim();
   let isChoiceValid = validatePlayerInput(playerChoice);
 
   while (isChoiceValid === false) {
-    playerChoice = prompt("Enter a valid choice").toLowerCase();
+    playerChoice = prompt("Enter a valid choice!").toLowerCase().trim();
     isChoiceValid = validatePlayerInput(playerChoice);
   }
   
