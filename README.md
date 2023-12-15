@@ -1,11 +1,10 @@
-# odin-rock-paper-scissors
-Rock, Paper, Scissors
-
-## The Ultimate Classic
+odin-rock-paper-scissors
+# Rock, Paper, Scissors
+# *The Ultimate Classic*
 
 ### Game Rules
 
-* Rules are the same
+* Rules are classic
 * Game is BO5
 * Tied rounds are not counted and are replayed
 
