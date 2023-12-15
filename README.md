@@ -1,6 +1,6 @@
 odin-rock-paper-scissors
 # Rock, Paper, Scissors
-# *The Ultimate Classic*
+## *The Ultimate Classic*
 
 ### Game Rules
 
