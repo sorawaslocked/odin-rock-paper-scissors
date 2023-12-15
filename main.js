@@ -88,14 +88,6 @@ function playSingleRound() {
     roundWinner = playSingleRound();
   }
 
-  playerChoice = formatChoice(playerChoice);
-  computerChoice = formatChoice(computerChoice);
-  
-  if (roundWinner === "player")
-    console.log("You win. " + playerChoice + " beats " + computerChoice + ".");
-  else
-    console.log("You lose. " + computerChoice + " beats " + playerChoice + ".");
-
   return roundWinner;
 }
 
@@ -104,11 +96,22 @@ function game() {
   let computerScore = 0;
 
   for (let i = 0; i < 5; i++) {
-    result = playSingleRound();
-    console.log("ROUND WINNER: ".concat(result));
-    if (result === "player")
+    roundResult = playSingleRound();
+
+    if (roundWinner === "player") {
+      let roundMessage = "You win. " + playerChoice + " beats " + computerChoice + ".";
+      console.log(roundMessage);
+    }
+    else {
+      let roundMessage = "You lose. " + computerChoice + " beats " + playerChoice + ".";
+      console.log(roundMessage);
+    }
+
+    console.log("ROUND WINNER: ".concat(roundResult));
+
+    if (roundResult === "player")
       playerScore++;
-    else if (result === "computer")
+    else if (roundResult === "computer")
       computerScore++;
   }
 
