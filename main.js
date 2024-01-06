@@ -1,6 +1,6 @@
 const CHOICES = ["Rock", "Paper", "Scissors"];
 
-console.log(playSingleRound())
+game()
 
 function getComputerChoice() {
   let randIndex = Math.floor(Math.random() * 3);
@@ -98,6 +98,6 @@ function game() {
 
   if (playerScore > computerScore)
     console.log("GAME WINNER: player");
-  else (computerScore > playerScore)
+  else if (computerScore > playerScore)
     console.log("GAME WINNER: computer");
 }
