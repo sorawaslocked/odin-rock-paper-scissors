@@ -1,11 +1,12 @@
 const CHOICES = ["Rock", "Paper", "Scissors"];
-
 const rockBtn = document.querySelector('#rockBtn');
 const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
 const roundEndMsg = document.querySelector('#roundEndMsg');
 const gameEndMsg = document.querySelector('#gameEndMsg');
 const scoreboard = document.querySelector('#score');
+const gameRestartBtn = document.createElement('button');
+gameRestartBtn.textContent = "Restart Game";
 let playerScore = 0, computerScore = 0;
 
 addButtonEventListeners();
@@ -19,6 +20,9 @@ function addButtonEventListeners() {
   });
   scissorsBtn.addEventListener('click', () => {
     game("Scissors");
+  });
+  gameRestartBtn.addEventListener('click', () => {
+    restartGame();
   });
 }
 
@@ -65,11 +69,6 @@ function playSingleRound(playerChoice) {
 
   let roundWinner = getRoundWinner(playerChoice, computerChoice);
   roundEndMsg.textContent = getRoundEndMsg(roundWinner, playerChoice, computerChoice);
-  
-  console.log(playerChoice);
-  console.log(computerChoice);
-  console.log(roundWinner);
-  console.log("")
 
   return roundWinner;
 }
@@ -82,6 +81,7 @@ function endGame(winner) {
   rockBtn.disabled = true;
   paperBtn.disabled = true;
   scissorsBtn.disabled = true;
+  document.body.appendChild(gameRestartBtn);
 }
 
 function game(choice) {
@@ -91,11 +91,23 @@ function game(choice) {
     playerScore++;
   else if (roundWinner === 'computer')
     computerScore++;
-  
+
   if (playerScore === 5)
     endGame('player');
   else if (computerScore === 5)
     endGame('computer');
   
   scoreboard.textContent = playerScore + " : " + computerScore;
+}
+
+function restartGame() {
+  scoreboard.textContent = "0 : 0";
+  playerScore = 0;
+  computerScore = 0;
+  roundEndMsg.textContent = "";
+  gameEndMsg.textContent = "";
+  rockBtn.disabled = false;
+  paperBtn.disabled = false;
+  scissorsBtn.disabled = false;
+  document.body.removeChild(gameRestartBtn);
 }
