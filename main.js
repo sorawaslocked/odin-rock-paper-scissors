@@ -87,8 +87,15 @@ function endGame(winner) {
 function game(choice) {
   let roundWinner = playSingleRound(choice);
 
+  if (roundWinner === 'player')
+    playerScore++;
+  else if (roundWinner === 'computer')
+    computerScore++;
+  
   if (playerScore === 5)
     endGame('player');
   else if (computerScore === 5)
     endGame('computer');
+  
+  scoreboard.textContent = playerScore + " : " + computerScore;
 }
