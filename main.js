@@ -5,10 +5,10 @@ const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
 const roundEndMsg = document.querySelector('#roundEndMsg');
 const gameEndMsg = document.querySelector('#gameEndMsg');
+const scoreboard = document.querySelector('#score');
 let playerScore = 0, computerScore = 0;
 
 addButtonEventListeners();
-
 
 function addButtonEventListeners() {
   rockBtn.addEventListener('click', () => {
@@ -52,21 +52,20 @@ function getRoundWinner(playerChoice, computerChoice) {
   }
 }
 
+function getRoundEndMsg(roundWinner, playerChoice, computerChoice) {
+  if (roundWinner === 'player')
+    return "You win. " + playerChoice + " beats " + computerChoice + ".";
+  else if (roundWinner === "computer") 
+    return "You lose. " + computerChoice + " beats " + playerChoice + ".";
+  return "Tie!";
+}
+
 function playSingleRound(playerChoice) {
   let computerChoice = getComputerChoice();
 
   let roundWinner = getRoundWinner(playerChoice, computerChoice);
-  if (roundWinner === "tie") {
-    roundEndMsg.textContent = "TIE!";
-  }
-  else {
-    if (roundWinner === "player") {
-      roundEndMsg.textContent = "You win. " + playerChoice + " beats " + computerChoice + ".";
-    }
-    else {
-      roundEndMsg.textContent = "You lose. " + computerChoice + " beats " + playerChoice + ".";
-    }
-  }
+  roundEndMsg.textContent = getRoundEndMsg(roundWinner, playerChoice, computerChoice);
+  
   console.log(playerChoice);
   console.log(computerChoice);
   console.log(roundWinner);
@@ -76,5 +75,4 @@ function playSingleRound(playerChoice) {
 }
 
 function game() {
-  playSingleRound();
 }
