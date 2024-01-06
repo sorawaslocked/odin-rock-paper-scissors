@@ -12,13 +12,13 @@ addButtonEventListeners();
 
 function addButtonEventListeners() {
   rockBtn.addEventListener('click', () => {
-    playSingleRound("Rock");
+    game("Rock");
   });
   paperBtn.addEventListener('click', () => {
-    playSingleRound("Paper");
+    game("Paper");
   });
   scissorsBtn.addEventListener('click', () => {
-    playSingleRound("Scissors");
+    game("Scissors");
   });
 }
 
@@ -74,5 +74,21 @@ function playSingleRound(playerChoice) {
   return roundWinner;
 }
 
-function game() {
+function endGame(winner) {
+  if (winner === 'player')
+    gameEndMsg.textContent = "You won the game! Congrats!";
+  else
+    gameEndMsg.textContent = "Sadly, you lost. Better luck next time!";
+  rockBtn.disabled = true;
+  paperBtn.disabled = true;
+  scissorsBtn.disabled = true;
+}
+
+function game(choice) {
+  let roundWinner = playSingleRound(choice);
+
+  if (playerScore === 5)
+    endGame('player');
+  else if (computerScore === 5)
+    endGame('computer');
 }
