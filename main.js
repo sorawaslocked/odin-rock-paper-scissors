@@ -1,24 +1,10 @@
 const CHOICES = ["Rock", "Paper", "Scissors"];
 
-
-game();
-
+console.log(playSingleRound())
 
 function getComputerChoice() {
   let randIndex = Math.floor(Math.random() * 3);
   return CHOICES[randIndex];
-}
-
-function isUpperCase(char) {
-  if (char >= 'A' && char <= 'Z')
-    return true;
-  return false;
-}
-
-function isLowerCase(char) {
-  if (char >= 'a' && char <= 'z')
-    return true;
-  return false;
 }
 
 function formatChoice(choice) {
@@ -30,7 +16,7 @@ function formatChoice(choice) {
   return choice;
 }
 
-function validatePlayerInput(input) {
+function validatePlayerChoice(input) {
   if (input !== CHOICES[0]
     && input !== CHOICES[1]
     && input !== CHOICES[2]
@@ -41,23 +27,23 @@ function validatePlayerInput(input) {
 function getRoundWinner(playerChoice, computerChoice) {
   switch (playerChoice) {
     case "Rock":
-      if (computerChoice === "rock")
+      if (computerChoice === "Rock")
         return "tie";
-      else if (computerChoice === "paper")
+      else if (computerChoice === "Paper")
         return "computer";
       return "player";
 
     case "Paper":
-      if (computerChoice === "rock")
+      if (computerChoice === "Rock")
         return "player";
-      else if (computerChoice === "paper")
+      else if (computerChoice === "Paper")
         return "tie";
       return "computer";
 
     case "Scissors":
-      if (computerChoice === "rock")
+      if (computerChoice === "Rock")
         return "computer";
-      else if (computerChoice === "paper")
+      else if (computerChoice === "Paper")
         return "player";
       return "tie";
   }
@@ -67,13 +53,14 @@ function playSingleRound() {
   let computerChoice = getComputerChoice();
   let playerChoice = prompt("What's your choice?");
   playerChoice = formatChoice(playerChoice);
-  let isChoiceValid = validatePlayerInput(playerChoice);
+  let isChoiceValid = validatePlayerChoice(playerChoice);
 
   while (isChoiceValid === false) {
     playerChoice = prompt("Enter a valid choice!");
     playerChoice = formatChoice(playerChoice);
-    isChoiceValid = validatePlayerInput(playerChoice);
+    isChoiceValid = validatePlayerChoice(playerChoice);
   }
+
 
   let roundWinner = getRoundWinner(playerChoice, computerChoice);
   if (roundWinner === "tie") {
