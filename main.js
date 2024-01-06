@@ -1,5 +1,11 @@
 const CHOICES = ["Rock", "Paper", "Scissors"];
 
+const rockBtn = document.querySelector('rockBtn');
+const paperBtn = document.querySelector('paperBtn');
+const scissorsBtn = document.querySelector('scissorsBtn');
+
+addButtonEventListeners();
+
 game()
 
 function getComputerChoice() {
@@ -49,18 +55,8 @@ function getRoundWinner(playerChoice, computerChoice) {
   }
 }
 
-function playSingleRound() {
+function playSingleRound(playerChoice) {
   let computerChoice = getComputerChoice();
-  let playerChoice = prompt("What's your choice?");
-  playerChoice = formatChoice(playerChoice);
-  let isChoiceValid = validatePlayerChoice(playerChoice);
-
-  while (isChoiceValid === false) {
-    playerChoice = prompt("Enter a valid choice!");
-    playerChoice = formatChoice(playerChoice);
-    isChoiceValid = validatePlayerChoice(playerChoice);
-  }
-
 
   let roundWinner = getRoundWinner(playerChoice, computerChoice);
   if (roundWinner === "tie") {
@@ -82,22 +78,5 @@ function playSingleRound() {
 }
 
 function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-
-  for (let i = 0; i < 5; i++) {
-    roundResult = playSingleRound();
-
-    console.log("ROUND WINNER: ".concat(roundResult));
-
-    if (roundResult === "player")
-      playerScore++;
-    else
-      computerScore++;
-  }
-
-  if (playerScore > computerScore)
-    console.log("GAME WINNER: player");
-  else if (computerScore > playerScore)
-    console.log("GAME WINNER: computer");
+  
 }
