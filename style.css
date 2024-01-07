@@ -1,0 +1,64 @@
+body {
+  background-color: #50C878;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+}
+
+#header, #footer, #score, #scoreTitle {
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+#header, #footer {
+  color: aliceblue;
+  background-color: #00A36C;
+  padding: 12px;
+}
+
+#header {
+  font-weight: bold;
+  font-size: 48px;
+  border-bottom: 4px solid whitesmoke;
+}
+
+#footer {
+  font-size: 20px;
+  border-top: 4px solid whitesmoke;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#instructions1, #instructions2, #roundEndMsg, #gameEndMsg {
+  font-family: 'VT323', monospace;
+  color: black;
+  font-size: 24px;
+  margin-top: 8px;
+}
+
+#instructions1 {
+  margin-top: 20px;
+}
+
+#scoreTitle {
+  font-weight: bold;
+  font-size: 32px;
+  color: aliceblue;
+  margin-top: 28px;
+}
+
+#score {
+  font-weight: bold;
+  font-size: 28px;
+  color: aliceblue;
+  margin-top: 8px;
+}
+
+#buttonBox {
+  margin-top: 28px;
+}

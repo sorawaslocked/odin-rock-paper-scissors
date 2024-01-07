@@ -4,15 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=VT323&display=swap" rel="stylesheet">
   <title>Rock, Paper, Scissors</title>
   <script src="main.js" defer></script>
 </head>
 <body>
-  <div id="score">0 : 0</div>
-  <button id="rockBtn">Rock</button>
-  <button id="paperBtn">Paper</button>
-  <button id="scissorsBtn">Scissors</button>
-  <div id="roundEndMsg"></div>
-  <div id="gameEndMsg"></div>
+  <div id="header">Rock Paper Scissors</div>
+
+  <div class="content">
+    <div id="instructions1">Rock beats Scissors, Paper beats Rock, Scissors beat Paper</div>
+    <div id="instructions2">The first to get 5 round victories wins the game!</div>
+
+    <div id="scoreTitle">SCORE</div>
+    <div id="score">0 : 0</div>
+
+    <div id="buttonBox">
+      <button id="rockBtn">Rock</button>
+      <button id="paperBtn">Paper</button>
+      <button id="scissorsBtn">Scissors</button>
+    </div>
+
+    <div id="roundEndMsg"></div>
+    <div id="gameEndMsg"></div>
+  </div>
+
+  <div id="footer">Made by sora</div>
 </body>
 </html>
