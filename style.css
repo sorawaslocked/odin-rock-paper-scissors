@@ -17,6 +17,12 @@ body {
   padding: 12px;
 }
 
+a {
+  color: black;
+  padding: 0;
+  text-decoration: none;
+}
+
 #header {
   font-weight: bold;
   font-size: 48px;
