@@ -30,6 +30,24 @@ function addButtonEventListeners() {
   scissorsBtn.addEventListener('click', handleScissorsClick);
 }
 
+function removeButtonEventListeners() {
+  rockBtn.removeEventListener('click', handleRockClick);
+  paperBtn.removeEventListener('click', handlePaperClick);
+  scissorsBtn.removeEventListener('click', handleScissorsClick);
+}
+
+function addButtonHover() {
+  rockBtn.classList.add('hover');
+  paperBtn.classList.add('hover');
+  scissorsBtn.classList.add('hover');
+}
+
+function removeButtonHover() {
+  rockBtn.classList.remove('hover');
+  paperBtn.classList.remove('hover');
+  scissorsBtn.classList.remove('hover');
+}
+
 function getComputerChoice() {
   let randIndex = Math.floor(Math.random() * 3);
   return CHOICES[randIndex];
@@ -85,10 +103,9 @@ function getGameEndMsg(winner) {
 }
 
 function endGame() {
-  rockBtn.removeEventListener('click', handleRockClick);
-  paperBtn.removeEventListener('click', handlePaperClick);
-  scissorsBtn.removeEventListener('click', handleScissorsClick);
   content.appendChild(gameRestartBtn);
+  removeButtonEventListeners();
+  removeButtonHover();
   gameRestartBtn.addEventListener('click', restartGame);
 }
 
@@ -121,5 +138,6 @@ function restartGame() {
   roundEndMsg.textContent = "";
   gameEndMsg.textContent = "";
   addButtonEventListeners();
+  addButtonHover();
   content.removeChild(gameRestartBtn);
 }
