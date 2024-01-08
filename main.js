@@ -6,7 +6,8 @@ const roundEndMsg = document.querySelector('#roundEndMsg');
 const gameEndMsg = document.querySelector('#gameEndMsg');
 const playerScoreboard = document.querySelector('#playerScore');
 const computerScoreboard = document.querySelector('#computerScore');
-const gameRestartBtn = document.querySelector('#restartBtn');
+const content = document.querySelector('.content');
+const gameRestartBtn = createGameRestartButton();
 let playerScore = 0, computerScore = 0;
 
 const handleRockClick = () => {game("Rock")}
@@ -14,6 +15,14 @@ const handlePaperClick = () => {game("Paper")}
 const handleScissorsClick = () => {game("Scissors")}
 
 addButtonEventListeners();
+
+function createGameRestartButton() {
+  const gameRestartBtn = document.createElement('button');
+  gameRestartBtn.classList.add('restartBtn');
+  gameRestartBtn.textContent = "Restart Game";
+
+  return gameRestartBtn;
+}
 
 function addButtonEventListeners() {
   rockBtn.addEventListener('click', handleRockClick);
@@ -76,10 +85,11 @@ function getGameEndMsg(winner) {
 }
 
 function endGame() {
-  gameRestartBtn.addEventListener('click', () => {
-    restartGame();
-  });
-  rockBtn.removeEventListener('click', handlePaperClick);
+  rockBtn.removeEventListener('click', handleRockClick);
+  paperBtn.removeEventListener('click', handlePaperClick);
+  scissorsBtn.removeEventListener('click', handleScissorsClick);
+  content.appendChild(gameRestartBtn);
+  gameRestartBtn.addEventListener('click', restartGame);
 }
 
 function game(choice) {
@@ -110,8 +120,6 @@ function restartGame() {
   computerScore = 0;
   roundEndMsg.textContent = "";
   gameEndMsg.textContent = "";
-  rockBtn.disabled = false;
-  paperBtn.disabled = false;
-  scissorsBtn.disabled = false;
-  document.body.removeChild(gameRestartBtn);
+  addButtonEventListeners();
+  content.removeChild(gameRestartBtn);
 }

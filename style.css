@@ -65,11 +65,14 @@ body {
 .scoreContainer {
   display: flex;
   gap: 12px;
+  align-items: center;
 }
 
 .score {
   border: 3px solid aliceblue;
   padding: 0 8px;
+  font-family: 'VT323', monospace;
+  font-size: 40px;
 }
 
 #buttonBox {
@@ -87,7 +90,7 @@ img {
   image-rendering: pixelated;
   height: auto;
   width: 160px;
-  transition: transform 300ms ease-in-out;
+  transition: transform 250ms ease-in-out;
 }
 
 #roundEndMsg {
@@ -96,10 +99,13 @@ img {
 
 .restartBtn {
   border: 3px solid black;
+  font-family: 'VT323', monospace;
+  margin: 32px auto;
   font-size: 24px;
-  padding: 0 auto;
+  padding: 4px 12px;
   background-color: white;
   color: black;
+  transition: 100ms ease-in-out;
 }
 
 .restartBtn:hover {
