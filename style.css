@@ -76,7 +76,7 @@ body {
 }
 
 #buttonBox {
-  margin: 36px 80px 0;
+  margin: 48px 80px 0;
   display: flex;
   justify-content: center;
   gap: 120px;
@@ -94,13 +94,13 @@ img {
 }
 
 #roundEndMsg {
-  margin-top: 32px;
+  margin-top: 48px;
 }
 
 .restartBtn {
   border: 3px solid black;
   font-family: 'VT323', monospace;
-  margin: 32px auto;
+  margin: 32px auto 16px;
   font-size: 24px;
   padding: 4px 12px;
   background-color: white;
