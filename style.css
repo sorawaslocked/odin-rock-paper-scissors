@@ -7,7 +7,7 @@ body {
   height: 100vh;
 }
 
-#header, #footer, #score, #scoreTitle {
+#header, #footer, #scoreBox, #scoreTitle {
   font-family: 'Pixelify Sans', sans-serif;
 }
 
@@ -52,13 +52,36 @@ body {
   margin-top: 28px;
 }
 
-#score {
-  font-weight: bold;
-  font-size: 28px;
+#scoreBox {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  font-size: 32px;
   color: aliceblue;
-  margin-top: 8px;
+}
+
+#score {
+  text-align: center;
 }
 
 #buttonBox {
-  margin-top: 28px;
+  margin: 36px 80px 0;
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+}
+
+img:hover {
+  transform: translate(0, -12px)
+}
+
+img {
+  image-rendering: pixelated;
+  height: auto;
+  width: 160px;
+  transition: transform 300ms ease-in-out;
+}
+
+#roundEndMsg {
+  margin-top: 32px;
 }
