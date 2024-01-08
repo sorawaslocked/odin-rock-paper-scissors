@@ -14,5 +14,7 @@
 * Player can restart the game by clicking on "Restart Game" button
 
 Special thanks @Dosimjan for making rock, paper, scissors for me!
+
 His GitHub: https://github.com/DosimjanF
+
 His Telegram: @fandedk
