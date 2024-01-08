@@ -32,6 +32,7 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #instructions1, #instructions2, #roundEndMsg, #gameEndMsg {
@@ -56,12 +57,19 @@ body {
   display: flex;
   align-items: baseline;
   justify-content: space-around;
+  width: 100%;
   font-size: 32px;
   color: aliceblue;
 }
 
-#score {
-  text-align: center;
+.scoreContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.score {
+  border: 3px solid aliceblue;
+  padding: 0 8px;
 }
 
 #buttonBox {
@@ -71,7 +79,7 @@ body {
   gap: 120px;
 }
 
-img:hover {
+.hover:hover {
   transform: translate(0, -12px)
 }
 
@@ -84,4 +92,16 @@ img {
 
 #roundEndMsg {
   margin-top: 32px;
+}
+
+.restartBtn {
+  border: 3px solid black;
+  font-size: 24px;
+  padding: 0 auto;
+  background-color: white;
+  color: black;
+}
+
+.restartBtn:hover {
+  background-color: darkgray;
 }

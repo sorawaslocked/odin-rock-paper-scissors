@@ -19,19 +19,28 @@
 
     <div id="scoreTitle">SCORE</div>
     <div id="scoreBox">
-      <div>Player 1</div>
-      <div id="score"> 0 : 0</div>
-      <div>Player 2</div>
+
+      <div class="scoreContainer">
+        <div id="playerScore" class="score">00</div>
+        <div>Player</div>
+      </div>
+
+      <div class="scoreContainer">
+        <div>Computer</div>
+        <div id="computerScore" class="score">00</div>
+      </div>
+
     </div>
 
     <div id="buttonBox">
-      <img id="rockBtn" src="images/rock.png" alt="rockIcon">
-      <img id="paperBtn" src="images/paper.png" alt="paperIcon">
-      <img id="scissorsBtn" src="images/scissors.png" alt="scissorsIcon">
+      <img id="rockBtn" class="hover" src="images/rock.png" alt="rockIcon">
+      <img id="paperBtn" class="hover" src="images/paper.png" alt="paperIcon">
+      <img id="scissorsBtn" class="hover" src="images/scissors.png" alt="scissorsIcon">
     </div>
 
     <div id="roundEndMsg"></div>
     <div id="gameEndMsg"></div>
+    <div id="restartBtn"></div>
   </div>
 
   <div id="footer">Made by sora</div>

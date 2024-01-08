@@ -4,26 +4,21 @@ const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
 const roundEndMsg = document.querySelector('#roundEndMsg');
 const gameEndMsg = document.querySelector('#gameEndMsg');
-const scoreboard = document.querySelector('#score');
-const gameRestartBtn = document.createElement('button');
-gameRestartBtn.textContent = "Restart Game";
+const playerScoreboard = document.querySelector('#playerScore');
+const computerScoreboard = document.querySelector('#computerScore');
+const gameRestartBtn = document.querySelector('#restartBtn');
 let playerScore = 0, computerScore = 0;
+
+const handleRockClick = () => {game("Rock")}
+const handlePaperClick = () => {game("Paper")}
+const handleScissorsClick = () => {game("Scissors")}
 
 addButtonEventListeners();
 
 function addButtonEventListeners() {
-  rockBtn.addEventListener('click', () => {
-    game("Rock");
-  });
-  paperBtn.addEventListener('click', () => {
-    game("Paper");
-  });
-  scissorsBtn.addEventListener('click', () => {
-    game("Scissors");
-  });
-  gameRestartBtn.addEventListener('click', () => {
-    restartGame();
-  });
+  rockBtn.addEventListener('click', handleRockClick);
+  paperBtn.addEventListener('click', handlePaperClick);
+  scissorsBtn.addEventListener('click', handleScissorsClick);
 }
 
 function getComputerChoice() {
@@ -73,15 +68,18 @@ function playSingleRound(playerChoice) {
   return roundWinner;
 }
 
-function endGame(winner) {
+function getGameEndMsg(winner) {
   if (winner === 'player')
     gameEndMsg.textContent = "You won the game! Congrats!";
   else
     gameEndMsg.textContent = "Sadly, you lost. Better luck next time!";
-  rockBtn.disabled = true;
-  paperBtn.disabled = true;
-  scissorsBtn.disabled = true;
-  document.body.appendChild(gameRestartBtn);
+}
+
+function endGame() {
+  gameRestartBtn.addEventListener('click', () => {
+    restartGame();
+  });
+  rockBtn.removeEventListener('click', handlePaperClick);
 }
 
 function game(choice) {
@@ -92,16 +90,22 @@ function game(choice) {
   else if (roundWinner === 'computer')
     computerScore++;
 
-  if (playerScore === 5)
-    endGame('player');
-  else if (computerScore === 5)
-    endGame('computer');
+  if (playerScore === 5) {
+    endGame();
+    getGameEndMsg('player');
+  }
+  else if (computerScore === 5) {
+    endGame();
+    getGameEndMsg('computer');
+  }
   
-  scoreboard.textContent = playerScore + " : " + computerScore;
+  playerScoreboard.textContent = "0" + playerScore;
+  computerScoreboard.textContent = "0" + computerScore;
 }
 
 function restartGame() {
-  scoreboard.textContent = "0 : 0";
+  playerScoreboard.textContent = "00";
+  computerScoreboard.textContent = "00";
   playerScore = 0;
   computerScore = 0;
   roundEndMsg.textContent = "";
