@@ -13,8 +13,6 @@
 * After the game ends, a message with the winner is shown and "Restart Game" button appears
 * Player can restart the game by clicking on "Restart Game" button
 
-Special thanks @Dosimjan for making rock, paper, scissors for me!
-
-His GitHub: https://github.com/DosimjanF
-
+Special thanks to @Dosimjan for making rock, paper, scissors icons for me!  
+His GitHub: https://github.com/DosimjanF  
 His Telegram: @fandedk
